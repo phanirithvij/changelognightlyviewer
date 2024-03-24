@@ -3,3 +3,4 @@ bin/
 dist/*/*.zst
 dist/*/*.gz
 dist/*/*.br
+content/nightly.changelog.com/
