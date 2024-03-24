@@ -1,0 +1,5 @@
+bin/
+*.out
+dist/*/*.zst
+dist/*/*.gz
+dist/*/*.br
