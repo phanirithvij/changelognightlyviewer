@@ -67,7 +67,7 @@ func body(postdate string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-post=\"/bod\" hx-trigger=\"input changed delay:2s\" hx-target=\"body\"></sl-input><div hx-get=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-post=\"/bod\" hx-trigger=\"input changed delay:1s\" hx-target=\"body\"></sl-input><div hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -42,7 +42,7 @@ sl-input {
 		min="2015-01-01"
 		max={ today() }
 		hx-post="/bod"
-		hx-trigger="input changed delay:2s"
+		hx-trigger="input changed delay:1s"
 		hx-target="body"
 	></sl-input>
 	<div hx-get={ postUrl(postdate) } hx-swap="outerHTML" hx-trigger="load"></div>

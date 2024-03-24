@@ -43,16 +43,15 @@ Missing dates for 2024:
     - see if fly.io functions like this already without doing much
 - [ ] separate categories for first timers, top new, repeat performers?
 - [ ] calendar view with htmx/cache as the simplest approach
-- [ ] missing issues detect via 404
-- [ ] prevent <2015-01-01 and >=current date in calendar ui
+- [ ] missing issues detect via 404 and also 404 page as well
+- [x] prevent <2015-01-01 and >=current date in calendar ui
 - [ ] light dark mode switch
     - how is it done in the email? where is this info saved?
     - I guess client side is enough for us
     - no cookies
 - [ ] google analytics
     - not sure, will require input from the changelog people
-- [ ] Should I be writing this in ruby?
+- [x] Should I be writing this in ruby?
     - Intent is to learn htmx with go (learn templ later)
 - [ ] remove all todos and the todo section once done
-
 

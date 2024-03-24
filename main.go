@@ -38,6 +38,8 @@ func HomeHandler(c echo.Context) error {
         return Render(c, http.StatusOK, index("2016-02-02"))
 }
 
+// TODO: combine this and homehandler and use /browse?date=...
+// check if req sent by htmx and serve partial body
 func BodyHandler(c echo.Context) error {
 	if (c.Request().Method == "GET") {
 	        return Render(c, http.StatusOK, body("2016-02-02"))
