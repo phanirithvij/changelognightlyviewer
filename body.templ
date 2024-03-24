@@ -1,0 +1,21 @@
+package main
+
+func postUrl(postdate string) string {
+    return "/nightly.changelog.com/" + postdate
+}
+
+templ body(postdate string) {
+	<sl-input
+                type="date"
+                placeholder="Date"
+                hx-post="/browse"
+                hx-trigger="input changed delay:200ms"
+                hx-target="body">
+        </sl-input>
+        <div hx-get={ postUrl(postdate) } hx-swap="outerHTML" hx-trigger="load">
+        </div>
+        <script src="/dist/js/htmx.min.js"></script>
+        <script src="/dist/js/head-support.js"></script>
+        <script src="/dist/js/htmx.ext.shoelace.js"></script>
+}
+

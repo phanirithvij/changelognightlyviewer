@@ -10,7 +10,11 @@ import "context"
 import "io"
 import "bytes"
 
-func hello(name string) templ.Component {
+func postUrl(postdate string) string {
+	return "/nightly.changelog.com/" + postdate
+}
+
+func body(postdate string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,20 +27,20 @@ func hello(name string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div>Hello, ")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<sl-input type=\"date\" placeholder=\"Date\" hx-post=\"/browse\" hx-trigger=\"input changed delay:200ms\" hx-target=\"body\"></sl-input><div hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
-		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `hello.templ`, Line: 4, Col: 19}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 15, Col: 39}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-swap=\"outerHTML\" hx-trigger=\"load\"></div><script src=\"/dist/js/htmx.min.js\"></script><script src=\"/dist/js/head-support.js\"></script><script src=\"/dist/js/htmx.ext.shoelace.js\"></script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

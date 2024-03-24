@@ -2,12 +2,15 @@ package main
 
 import (
 	"net/http"
+
+	"fmt"
         "github.com/labstack/echo/v4"
         "github.com/labstack/echo/v4/middleware"
 
 	"github.com/a-h/templ"
 )
 
+//go:generate nix run github:a-h/templ generate
 func main() {
         e := echo.New()
 
@@ -19,10 +22,11 @@ func main() {
 	e.Static("/dist", "dist")
 	e.Static("/", "content")
 
-	e.POST("/browse", func(c echo.Context) error {
-		return c.String(http.StatusOK, "not bad")
+	e.POST("/bod", func(c echo.Context) error {
+		fmt.Println(c)
+		return Render(c, http.StatusOK, body("2017/01/19"))
 	})
-	e.GET("/hello", HomeHandler)
+	e.GET("/bod", HomeHandler)
 
         e.Logger.Fatal(e.Start(":8080"))
 }
@@ -35,5 +39,5 @@ func Render(ctx echo.Context, statusCode int, t templ.Component) error {
 }
 
 func HomeHandler(c echo.Context) error {
-        return Render(c, http.StatusOK, hello("pp"))
+        return Render(c, http.StatusOK, body("2016/02/02"))
 }
