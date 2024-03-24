@@ -1,22 +1,49 @@
 package main
 
+import "strings"
+import "time"
+
 func postUrl(postdate string) string {
-    return "/nightly.changelog.com/" + postdate
+	return "/nightly.changelog.com/" + strings.ReplaceAll(postdate, "-", "/")
+}
+
+func today() string {
+	loc, _ := time.LoadLocation("America/Chicago")
+	date := time.Now().In(loc)
+
+	// 10 PM or later
+	if date.Hour() >= 22 {
+		return date.Format("2006-01-02")
+	}
+	return date.Add(-24 * time.Hour).Format("2006-01-02")
 }
 
 templ body(postdate string) {
-	<sl-input
-                type="date"
-		name="postdate"
-                placeholder="Date"
-                hx-post="/bod"
-                hx-trigger="input changed delay:200ms"
-                hx-target="body">
-        </sl-input>
-        <div hx-get={ postUrl(postdate) } hx-swap="outerHTML" hx-trigger="load">
-        </div>
-        <script src="/dist/js/htmx.min.js"></script>
-        <script src="/dist/js/head-support.js"></script>
-        <script src="/dist/js/htmx.ext.shoelace.js"></script>
+	<style>
+sl-input {
+  color: #5ebc8f;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 1.8rem;
+  z-index: 222;
+  background: #000;
+  border-radius: 12px;
+  margin: 14px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-
+	</style>
+	<sl-input
+		type="date"
+		name="postdate"
+		placeholder="Date"
+		value={ postdate }
+		min="2015-01-01"
+		max={ today() }
+		hx-post="/bod"
+		hx-trigger="input changed delay:2s"
+		hx-target="body"
+	></sl-input>
+	<div hx-get={ postUrl(postdate) } hx-swap="outerHTML" hx-trigger="load"></div>
+}

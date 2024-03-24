@@ -10,8 +10,22 @@ import "context"
 import "io"
 import "bytes"
 
+import "strings"
+import "time"
+
 func postUrl(postdate string) string {
-	return "/nightly.changelog.com/" + postdate
+	return "/nightly.changelog.com/" + strings.ReplaceAll(postdate, "-", "/")
+}
+
+func today() string {
+	loc, _ := time.LoadLocation("America/Chicago")
+	date := time.Now().In(loc)
+
+	// 10 PM or later
+	if date.Hour() >= 22 {
+		return date.Format("2006-01-02")
+	}
+	return date.Add(-24 * time.Hour).Format("2006-01-02")
 }
 
 func body(postdate string) templ.Component {
@@ -27,20 +41,46 @@ func body(postdate string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<sl-input type=\"date\" name=\"postdate\" placeholder=\"Date\" hx-post=\"/bod\" hx-trigger=\"input changed delay:200ms\" hx-target=\"body\"></sl-input><div hx-get=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style>\nsl-input {\n  color: #5ebc8f;\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  height: 1.8rem;\n  z-index: 222;\n  background: #000;\n  border-radius: 12px;\n  margin: 14px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\t</style><sl-input type=\"date\" name=\"postdate\" placeholder=\"Date\" value=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
-		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
+		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(postdate)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 16, Col: 39}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 41, Col: 18}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-swap=\"outerHTML\" hx-trigger=\"load\"></div><script src=\"/dist/js/htmx.min.js\"></script><script src=\"/dist/js/head-support.js\"></script><script src=\"/dist/js/htmx.ext.shoelace.js\"></script>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" min=\"2015-01-01\" max=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var3 string
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(today())
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 43, Col: 15}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-post=\"/bod\" hx-trigger=\"input changed delay:2s\" hx-target=\"body\"></sl-input><div hx-get=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var4 string
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 48, Col: 32}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-swap=\"outerHTML\" hx-trigger=\"load\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

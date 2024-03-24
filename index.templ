@@ -1,19 +1,22 @@
 package main
 
 templ index(postdate string) {
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-	body {
-		background-color: #101820;
-	}
-</style>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/themes/dark.css" />
-	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/components/input/input.js" ></script>
-</head>
-<body hx-ext="head-support shoelace">
-	@body(postdate)
-</body>
-</html>
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<style>
+				body {
+					background-color: #101820;
+				}
+			</style>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/themes/dark.css"/>
+			<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/components/input/input.js"></script>
+		</head>
+		<body hx-ext="head-support shoelace">
+			@body(postdate)
+			<script src="/dist/js/htmx.min.js"></script>
+        		<script src="/dist/js/head-support.js"></script>
+        		<script src="/dist/js/htmx.ext.shoelace.js"></script>
+		</body>
+	</html>
 }
