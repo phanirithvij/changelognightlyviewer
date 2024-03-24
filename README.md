@@ -39,6 +39,8 @@ Missing dates for 2024:
 ## TODO
 
 - [ ] htmx ui and select only the specific elements from the server
+    - not possible to select multiple things from response
+    - I guess oob swap or client side scripting
 - [ ] client side caching to avoid requests
     - see if fly.io functions like this already without doing much
 - [ ] separate categories for first timers, top new, repeat performers?
@@ -53,5 +55,8 @@ Missing dates for 2024:
     - not sure, will require input from the changelog people
 - [x] Should I be writing this in ruby?
     - Intent is to learn htmx with go (learn templ later)
+- [ ] send pr
+    - [ ] remove proxying glue code/endpoints proxying nightly.changelog.com
+- [ ] mistyped as nightlog.changley.com
 - [ ] remove all todos and the todo section once done
 
