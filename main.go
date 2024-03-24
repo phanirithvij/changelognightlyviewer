@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"fmt"
+	"strings"
         "github.com/labstack/echo/v4"
         "github.com/labstack/echo/v4/middleware"
 
@@ -18,15 +19,18 @@ func main() {
         e.Use(middleware.Recover())
         e.Use(middleware.Gzip())
 
-        e.File("/browse", "dist/index.html")
+        e.GET("/browse", HomeHandler)
 	e.Static("/dist", "dist")
 	e.Static("/", "content")
 
 	e.POST("/bod", func(c echo.Context) error {
-		fmt.Println(c)
-		return Render(c, http.StatusOK, body("2017/01/19"))
+		var bod BodyRecv
+		err := c.Bind(&bod); if err != nil {
+			return c.String(http.StatusBadRequest, "bad request")
+		}
+		return Render(c, http.StatusOK, body(strings.ReplaceAll(bod.PostDate, "-", "/")))
 	})
-	e.GET("/bod", HomeHandler)
+	e.GET("/bod", BodyHandler)
 
         e.Logger.Fatal(e.Start(":8080"))
 }
@@ -39,5 +43,15 @@ func Render(ctx echo.Context, statusCode int, t templ.Component) error {
 }
 
 func HomeHandler(c echo.Context) error {
+        return Render(c, http.StatusOK, index("2016/02/02"))
+}
+
+func BodyHandler(c echo.Context) error {
+	fmt.Println(c.Request().Method)
         return Render(c, http.StatusOK, body("2016/02/02"))
 }
+
+type BodyRecv struct {
+	PostDate string `form:"postdate"`
+}
+

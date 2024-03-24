@@ -7,8 +7,9 @@ func postUrl(postdate string) string {
 templ body(postdate string) {
 	<sl-input
                 type="date"
+		name="postdate"
                 placeholder="Date"
-                hx-post="/browse"
+                hx-post="/bod"
                 hx-trigger="input changed delay:200ms"
                 hx-target="body">
         </sl-input>
