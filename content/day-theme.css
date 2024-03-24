@@ -1,0 +1,1739 @@
+.default .dot {
+  background: #CCCCCC;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.abap .dot {
+  background: #e8274b;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.actionscript .dot {
+  background: #882b0f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ada .dot {
+  background: #02f88c;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.agda .dot {
+  background: #315665;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ags-script .dot {
+  background: #b9d9ff;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.alloy .dot {
+  background: #64c800;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ampl .dot {
+  background: #e6efbb;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.antlr .dot {
+  background: #9dc3ff;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.api-blueprint .dot {
+  background: #2acca8;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.apl .dot {
+  background: #5a8164;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.arc .dot {
+  background: #aa2afe;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.arduino .dot {
+  background: #bd79d1;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.asp .dot {
+  background: #6a40fd;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.aspectj .dot {
+  background: #a957b0;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.assembly .dot {
+  background: #6e4c13;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ats .dot {
+  background: #1ac620;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.autohotkey .dot {
+  background: #6594b9;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.autoit .dot {
+  background: #1c3552;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.blitzmax .dot {
+  background: #cd6400;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.boo .dot {
+  background: boo-color;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.brainfuck .dot {
+  background: brainfuck-color;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.c .dot {
+  background: #555555;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.csharp .dot {
+  background: #178600;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.chapel .dot {
+  background: #8dc63f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.cirru .dot {
+  background: #ccccff;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.clarion .dot {
+  background: #db901e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.clean .dot {
+  background: #3f85af;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.click .dot {
+  background: #e4e6f3;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.clojure .dot {
+  background: #db5855;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.coffeescript .dot {
+  background: #244776;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.coldfusion-cfc .dot {
+  background: #ed2cd6;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.coldfusion .dot {
+  background: #ed2cd6;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.common-lisp .dot {
+  background: #3fb68b;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.component-pascal .dot {
+  background: #b0ce4e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.cpp .dot {
+  background: #f34b7d;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.crystal .dot {
+  background: #776791;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.css .dot {
+  background: #563d7c;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.d .dot {
+  background: #ba595e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.dart .dot {
+  background: #00b4ab;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.diff .dot {
+  background: #88dddd;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.dm .dot {
+  background: #447265;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.dogescript .dot {
+  background: #cca760;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.dylan .dot {
+  background: #6c616e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.e .dot {
+  background: #ccce35;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.eagle .dot {
+  background: #814c05;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ec .dot {
+  background: #913960;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ecl .dot {
+  background: #8a1267;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.edn .dot {
+  background: #db5855;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.eiffel .dot {
+  background: #946d57;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.elixir .dot {
+  background: #6e4a7e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.elm .dot {
+  background: #60b5cc;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.emacs-lisp .dot {
+  background: #c065db;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.emberscript .dot {
+  background: #fff4f3;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.erlang .dot {
+  background: #b83998;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.f-sharp .dot {
+  background: #b845fc;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.factor .dot {
+  background: #636746;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.fancy .dot {
+  background: #7b9db4;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.fantom .dot {
+  background: #dbded5;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.flux .dot {
+  background: #88ccff;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.forth .dot {
+  background: #341708;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.fortran .dot {
+  background: #4d41b1;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.freemarker .dot {
+  background: #0050b2;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.frege .dot {
+  background: #00cafe;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.game-maker-language .dot {
+  background: #8fb200;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.glyph .dot {
+  background: #e4cc98;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.gnuplot .dot {
+  background: #f0a9f0;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.go .dot {
+  background: #375eab;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.golo .dot {
+  background: #88562a;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.gosu .dot {
+  background: #82937f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.grammatical-framework .dot {
+  background: #79aa7a;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.groovy .dot {
+  background: #e69f56;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.handlebars .dot {
+  background: #01a9d6;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.harbour .dot {
+  background: #0e60e3;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.haskell .dot {
+  background: #29b544;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.haxe .dot {
+  background: #df7900;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.html .dot {
+  background: #e44b23;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.hy .dot {
+  background: #7790b2;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.idl .dot {
+  background: #a3522f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.io .dot {
+  background: #a9188d;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ioke .dot {
+  background: #078193;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.isabelle .dot {
+  background: #fefe00;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.j .dot {
+  background: #9eedff;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.java .dot {
+  background: #b07219;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.javascript .dot {
+  background: #f1e05a;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.jflex .dot {
+  background: #dbca00;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.jsoniq .dot {
+  background: #40d47e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.julia .dot {
+  background: #a270ba;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.jupyter-notebook .dot {
+  background: #DA5B0B;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.kotlin .dot {
+  background: #f18e33;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.krl .dot {
+  background: #28431f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.lasso .dot {
+  background: #999999;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.latte .dot {
+  background: #a8ff97;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.lex .dot {
+  background: #dbca00;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.lfe .dot {
+  background: #004200;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.livescript .dot {
+  background: #499886;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.lolcode .dot {
+  background: #cc9900;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.lookml .dot {
+  background: #652b81;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.lsl .dot {
+  background: #3d9970;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.lua .dot {
+  background: #000080;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.makefile .dot {
+  background: #427819;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.mask .dot {
+  background: #f97732;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.matlab .dot {
+  background: #bb92ac;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.max .dot {
+  background: #c4a79c;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.maxscript .dot {
+  background: #00a6a6;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.mercury .dot {
+  background: #ff2b2b;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.metal .dot {
+  background: #8f14e9;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.mirah .dot {
+  background: #c7a938;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.mtml .dot {
+  background: #b7e1f4;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ncl .dot {
+  background: #28431f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.nemerle .dot {
+  background: #3d3c6e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.nesc .dot {
+  background: #94b0c7;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.netlinx .dot {
+  background: #0aa0ff;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.netlinx-erb .dot {
+  background: #747faa;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.netlogo .dot {
+  background: #ff6375;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.newlisp .dot {
+  background: #87AED7;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.nimrod .dot {
+  background: #37775b;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.nit .dot {
+  background: #009917;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.nix .dot {
+  background: #7e7eff;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.nu .dot {
+  background: #c9df40;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.objective-c .dot {
+  background: #6866fb;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.objective-c .dot {
+  background: #6866fb;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.objective-j .dot {
+  background: #ff0c5a;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ocaml .dot {
+  background: #3be133;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.omgrofl .dot {
+  background: #cabbff;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ooc .dot {
+  background: #b0b77e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.opal .dot {
+  background: #f7ede0;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.oxygene .dot {
+  background: #cdd0e3;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.oz .dot {
+  background: #fab738;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.pan .dot {
+  background: #cc0000;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.papyrus .dot {
+  background: #6600cc;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.parrot .dot {
+  background: #f3ca0a;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.pascal .dot {
+  background: #b0ce4e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.pawn .dot {
+  background: #dbb284;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.perl .dot {
+  background: #0298c3;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.perl6 .dot {
+  background: #0000fb;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.php .dot {
+  background: #4f5d95;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.piglatin .dot {
+  background: #fcd7de;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.pike .dot {
+  background: #005390;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.plsql .dot {
+  background: #dad8d8;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.pogoscript .dot {
+  background: #d80074;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.processing .dot {
+  background: #0096d8;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.prolog .dot {
+  background: #74283c;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.propeller-spin .dot {
+  background: #7fa2a7;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.puppet .dot {
+  background: #302b6d;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.pure-data .dot {
+  background: #91de79;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.purebasic .dot {
+  background: #5a6986;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.purescript .dot {
+  background: #1d222d;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.python .dot {
+  background: #3572a5;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.qml .dot {
+  background: #44a51c;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.r .dot {
+  background: #198ce7;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.racket .dot {
+  background: #22228f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ragel-in-ruby-host .dot {
+  background: #9d5200;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.raml .dot {
+  background: #77d9fb;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.rebol .dot {
+  background: #358a5b;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ren-py .dot {
+  background: #ff7f7f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.rouge .dot {
+  background: #cc0088;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.ruby .dot {
+  background: #701516;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.rust .dot {
+  background: #dea584;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.saltstack .dot {
+  background: #646464;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.sas .dot {
+  background: #b34936;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.scala .dot {
+  background: #dc322f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.scheme .dot {
+  background: #1e4aec;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.self .dot {
+  background: #0579aa;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.shell .dot {
+  background: #89e051;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.shen .dot {
+  background: #120f14;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.slash .dot {
+  background: #007eff;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.slim .dot {
+  background: #ff8f77;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.smalltalk .dot {
+  background: #596706;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.sourcepawn .dot {
+  background: #5c7611;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.sqf .dot {
+  background: #3f3f3f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.squirrel .dot {
+  background: #800000;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.stan .dot {
+  background: #b2011d;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.standard-ml .dot {
+  background: #dc566d;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.supercollider .dot {
+  background: #46390b;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.swift .dot {
+  background: #ffac45;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.systemverilog .dot {
+  background: #dae1c2;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.tcl .dot {
+  background: #e4cc98;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.tex .dot {
+  background: #3d6117;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.turing .dot {
+  background: #45f715;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.typescript .dot {
+  background: #2b7489;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.unified-parallel-c .dot {
+  background: #4e3617;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.unity3d-asset .dot {
+  background: #ab69a1;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.unrealscript .dot {
+  background: #a54c4d;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.vala .dot {
+  background: #fbe5cd;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.verilog .dot {
+  background: #b2b7f8;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.vhdl .dot {
+  background: #adb2cb;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.viml .dot {
+  background: #199f4b;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.visual-basic .dot {
+  background: #945db7;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.volt .dot {
+  background: #1f1f1f;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.vue .dot {
+  background: #2c3e50;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.web-ontology-language .dot {
+  background: #9cc9dd;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.wisp .dot {
+  background: #7582d1;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.x10 .dot {
+  background: #4b6bef;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.xbase .dot {
+  background: #403a40;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.xc .dot {
+  background: #99da07;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.xquery .dot {
+  background: #5232e7;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+.zephir .dot {
+  background: #118f9e;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 7px; }
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+.hide-on-desktop {
+  display: none !important; }
+
+.show-on-desktop {
+  display: block !important; }
+
+@media (max-width: 480px) {
+  .hide-on-mobile {
+    display: none !important; }
+
+  .show-on-mobile {
+    display: block !important; }
+
+  .last-of-type-on-mobile {
+    margin-bottom: 0 !important; }
+
+  table {
+    width: 100%; } }
+.wrapper {
+  background-color: #fff; }
+
+.top-bar {
+  background-color: #e5e5e5;
+  color: #171717; }
+  .top-bar p {
+    font-size: 12px;
+    line-height: 28px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center; }
+  .top-bar a {
+    color: #171717;
+    text-decoration: none; }
+
+.header {
+  padding: 20px; }
+
+.header img {
+  margin: 10px 0 0 0; }
+
+.header-title {
+  text-align: right; }
+
+.header-title a {
+  color: #60C092;
+  font-size: 14px;
+  letter-spacing: 0.075em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  top: 3px; }
+
+.section {
+  padding-bottom: 25px; }
+
+.section h2 {
+  color: #171717;
+  font-size: 16px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 8px;
+  margin-left: 0; }
+
+.repositories {
+  margin-top: 30px; }
+
+.repository {
+  margin-bottom: 20px; }
+
+.repository:last-of-type, .repository.last-of-type {
+  margin-bottom: 0 !important; }
+
+.repository h3 {
+  color: #171717;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 4px;
+  padding-top: 0;
+  padding-bottom: 0; }
+  .repository h3 a {
+    color: #171717;
+    text-decoration: none; }
+
+.section p, .repository p {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0; }
+  .section p a, .repository p a {
+    color: #777; }
+
+.seperator {
+  background-color: #f3f3f3;
+  margin: 5px 0 15px 0; }
+  .seperator td {
+    background-color: #f3f3f3; }
+
+.avatar {
+  margin-top: 2px; }
+
+.stats p {
+  font-size: 12px;
+  line-height: 1;
+  margin-bottom: 6px; }
+  .stats p img {
+    margin-right: 2px; }
+  .stats p a.repository-language {
+    color: #777;
+    text-decoration: none; }
+
+.cross-promotion {
+  background-color: #171717;
+  text-align: center;
+  padding: 12px; }
+  .cross-promotion p {
+    color: #f5f5f5;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0; }
+  .cross-promotion a {
+    color: #f5f5f5;
+    font-weight: bold; }
+  .cross-promotion img {
+    padding-right: 5px;
+    vertical-align: top !important; }
+
+.footer {
+  color: #777;
+  padding: 10px 0 30px 0;
+  text-align: center; }
+  .footer p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 18px;
+    padding-top: 0;
+    padding-bottom: 0; }
+  .footer a {
+    color: #777; }

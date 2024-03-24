@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="referrer" content="origin" />
+<style>
+	body {
+		background-color: #101820;
+	}
+</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/themes/dark.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/components/input/input.js" ></script>
 </head>
-<body>
-        <div>hello htmx world</div>
-        <button id="baton" hx-post="/clicked" hx-swap="outerHTML">
-                Click Me
-        </button>
+<body hx-ext="head-support shoelace">
+	<sl-input
+		type="date"
+		placeholder="Date"
+		hx-post="/browse"
+		hx-trigger="input changed delay:200ms"
+		hx-target="body">
+	</sl-input>
+        <div hx-get="/nightly.changelog.com/2015/01/01" hx-swap="outerHTML" hx-trigger="load">
+        </div>
         <script src="/dist/js/htmx.min.js"></script>
+        <script src="/dist/js/head-support.js"></script>
+        <script src="/dist/js/htmx.ext.shoelace.js"></script>
 </body>
 </html>
