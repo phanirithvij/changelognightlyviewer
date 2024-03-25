@@ -36,6 +36,14 @@ Missing dates for 2023:
 Missing dates for 2024:
 ```
 
+To get the content (CORS issue prevents loading it directly via htmx)
+
+```
+mkdir -p content && cd content
+nix-shell -p httrack
+```
+`httrack "https://nightly.changelog.com" -O . "-*email*"`
+
 ## TODO
 
 - [ ] htmx ui and select only the specific elements from the server
