@@ -69,7 +69,7 @@ func body(postdate string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style>\n\t\t.btm-right {\n\t\t\tdisplay: flex;\n\t\t\tcolor: #5ebc8f;\n\t\t\tbackground: #000;\n\t\t\tposition: fixed;\n\t\t\tbottom: 0;\n\t\t\tright: 0;\n\t\t\theight: 1.8rem;\n\t\t\tz-index: 222;\n\t\t\tmargin: 14px;\n\t\t\tjustify-content: center;\n\t\t\talign-items: center;\n\t\t\tborder-radius: 10px;\n\t\t\tpadding-left: 3px;\n\t\t}\n\t\tsl-input {\n\t\t\tposition: relative;\n\t\t\tbottom: 2px;\n\t\t\tpadding-left: 5px;\n\t\t\tpadding-right: 5px;\n\t\t}\n\t</style><div class=\"btm-right\" hx-ext=\"path-params\"><sl-input type=\"date\" name=\"postdate\" placeholder=\"Date\" value=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style>\n\t\t.btm-right {\n\t\t\tdisplay: flex;\n\t\t\tcolor: #5ebc8f;\n\t\t\tbackground: #000;\n\t\t\tposition: fixed;\n\t\t\tbottom: 0;\n\t\t\tright: 0;\n\t\t\theight: 1.8rem;\n\t\t\tz-index: 222;\n\t\t\tmargin: 14px;\n\t\t\tjustify-content: center;\n\t\t\talign-items: center;\n\t\t\tborder-radius: 10px;\n\t\t\tpadding-right: 6px;\n\t\t}\n\t\tsl-input {\n\t\t\tposition: relative;\n\t\t\tbottom: 2px;\n\t\t\tpadding-left: 5px;\n\t\t\tpadding-right: 5px;\n\t\t}\n\t</style><div class=\"btm-right\" hx-ext=\"path-params\"><sl-input type=\"date\" name=\"postdate\" placeholder=\"Date\" value=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
