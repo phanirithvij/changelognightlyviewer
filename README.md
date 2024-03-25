@@ -11,7 +11,7 @@ go build -o changelognightlyviewer.out .
 
 # In a new shell
 mkdir -p content && cd content
-nix-shell -p httrack
+nix-shell -p httrack # or apt-get/pacman/yum/brew
 httrack "https://nightly.changelog.com" -O . "-*email*"
 # This won't be needed later but doing it for now
 # Alternate is to proxy the urls but I did this instead
