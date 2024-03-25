@@ -41,7 +41,7 @@ func body(postdate string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style>\nsl-input {\n  color: #5ebc8f;\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  height: 1.8rem;\n  z-index: 222;\n  background: #000;\n  border-radius: 12px;\n  margin: 14px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\t</style><sl-input type=\"date\" name=\"postdate\" placeholder=\"Date\" value=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style>\n\t\tsl-input {\n\t\t\tcolor: #5ebc8f;\n\t\t\tbackground: #000;\n\t\t\tposition: fixed;\n\t\t\tbottom: 0;\n\t\t\tright: 0;\n\t\t\theight: 1.8rem;\n\t\t\tz-index: 222;\n\t\t\tmargin: 14px;\n\t\t\tborder-radius: 12px;\n\t\t\tpadding-left: 5px;\n\t\t\tpadding-right: 5px;\n\t\t}\n\t</style><sl-input type=\"date\" name=\"postdate\" placeholder=\"Date\" value=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
