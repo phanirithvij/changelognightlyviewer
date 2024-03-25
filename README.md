@@ -22,3 +22,4 @@ visit http://localhost:8080/browse
 
 
 [Screenshot_20240325_174452](https://github.com/phanirithvij/changelognightlyviewer/assets/29627898/bf4cf987-c712-4ca2-bc85-3ea6ee3c3d63)
+[demo video](https://youtu.be/VE5J3XzIMIk)
