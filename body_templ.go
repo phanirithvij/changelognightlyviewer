@@ -28,6 +28,34 @@ func today() string {
 	return date.Add(-24 * time.Hour).Format("2006-01-02")
 }
 
+func todayUri() string {
+	return "/browse/" + today()
+}
+
+func prevUri(postdate string) string {
+	if postdate == "2015-01-01" {
+		return ""
+	}
+	date, err := time.Parse("2006-01-02", postdate)
+	if err != nil {
+		return ""
+	}
+	previousDay := date.AddDate(0, 0, -1)
+	return "/browse/" + previousDay.Format("2006-01-02")
+}
+
+func nextUri(postdate string) string {
+	if postdate == today() {
+		return ""
+	}
+	date, err := time.Parse("2006-01-02", postdate)
+	if err != nil {
+		return ""
+	}
+	nextDay := date.AddDate(0, 0, 1)
+	return "/browse/" + nextDay.Format("2006-01-02")
+}
+
 func body(postdate string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -41,14 +69,14 @@ func body(postdate string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style>\n\t\t.btm-right {\n\t\t\tdisplay: flex;\n\t\t\tcolor: #5ebc8f;\n\t\t\tbackground: #000;\n\t\t\tposition: fixed;\n\t\t\tbottom: 0;\n\t\t\tright: 0;\n\t\t\theight: 1.8rem;\n\t\t\tz-index: 222;\n\t\t\tmargin: 14px;\n\t\t\tjustify-content: center;\n\t\t\talign-items: center;\n\t\t\tborder-radius: 10px;\n\t\t\tpadding-left: 3px;\n\t\t}\n\t\tsl-input {\n\t\t\tposition: relative;\n\t\t\tbottom: 2px;\n\t\t\tpadding-left: 5px;\n\t\t\tpadding-right: 5px;\n\t\t}\n\t</style><div class=\"btm-right\" hx-ext=\"path-params\"><div><sl-icon library=\"default\" name=\"chevron-left\"></sl-icon> <sl-icon library=\"default\" name=\"chevron-right\"></sl-icon></div><sl-input type=\"date\" name=\"postdate\" placeholder=\"Date\" value=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<style>\n\t\t.btm-right {\n\t\t\tdisplay: flex;\n\t\t\tcolor: #5ebc8f;\n\t\t\tbackground: #000;\n\t\t\tposition: fixed;\n\t\t\tbottom: 0;\n\t\t\tright: 0;\n\t\t\theight: 1.8rem;\n\t\t\tz-index: 222;\n\t\t\tmargin: 14px;\n\t\t\tjustify-content: center;\n\t\t\talign-items: center;\n\t\t\tborder-radius: 10px;\n\t\t\tpadding-left: 3px;\n\t\t}\n\t\tsl-input {\n\t\t\tposition: relative;\n\t\t\tbottom: 2px;\n\t\t\tpadding-left: 5px;\n\t\t\tpadding-right: 5px;\n\t\t}\n\t</style><div class=\"btm-right\" hx-ext=\"path-params\"><sl-input type=\"date\" name=\"postdate\" placeholder=\"Date\" value=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(postdate)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 54, Col: 19}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 78, Col: 19}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -61,22 +89,61 @@ func body(postdate string) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(today())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 56, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 80, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-get=\"/browse/:postdate\" hx-push-url=\"true\" hx-trigger=\"input changed delay:1s\" hx-target=\"body\"></sl-input></div><div hx-get=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-get=\"/browse/:postdate\" hx-push-url=\"true\" hx-trigger=\"input changed delay:1s\" hx-target=\"body\"></sl-input><div><sl-icon-button library=\"default\" name=\"chevron-double-left\" hx-push-url=\"true\" hx-get=\"/browse/2015-01-01\" hx-target=\"body\"></sl-icon-button> <sl-icon-button library=\"default\" name=\"chevron-left\" hx-push-url=\"true\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(prevUri(postdate))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 63, Col: 32}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 99, Col: 30}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\"></sl-icon-button> <sl-icon-button library=\"default\" name=\"chevron-right\" hx-push-url=\"true\" hx-get=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var5 string
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(nextUri(postdate))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 106, Col: 30}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\"></sl-icon-button> <sl-icon-button library=\"default\" name=\"chevron-double-right\" hx-push-url=\"true\" hx-get=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var6 string
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(todayUri())
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 114, Col: 23}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\"></sl-icon-button></div></div><div hx-get=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var7 string
+		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 120, Col: 32}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

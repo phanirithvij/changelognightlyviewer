@@ -45,18 +45,27 @@ Missing dates for 2024:
     - see if fly.io functions like this already without doing much
 - [ ] separate categories for first timers, top new, repeat performers?
 - [ ] calendar view with htmx/cache as the simplest approach
+    - [ ] Better calendar on desktop
 - [ ] missing issues detect via 404 and also 404 page as well
 - [x] prevent <2015-01-01 and >=current date in calendar ui
 - [ ] light dark mode switch
     - how is it done in the email? where is this info saved?
     - I guess client side is enough for us
     - no cookies
-- [ ] google analytics
+- [x] google analytics
     - not sure, will require input from the changelog people
 - [x] Should I be writing this in ruby?
     - Intent is to learn htmx with go (learn templ later)
 - [ ] send pr
     - [ ] remove proxying glue code/endpoints proxying nightly.changelog.com
-- [ ] mistyped as nightlog.changley.com
+- mistyped as nightlog.changley.com
 - [ ] remove all todos and the todo section once done
-
+- [x] left right buttons (not naviagtion but date wise)
+    - [ ] keyboard shortcuts
+    - [ ] Bug with sholeace icons requests
+    - [ ] disable hx-get for empty urls
+- [ ] Vendor all deps
+    - Client side
+    - [x] htmx
+    - [x] htmx extenstions
+    - [ ] shoelace (is this possible)

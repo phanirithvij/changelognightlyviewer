@@ -18,6 +18,34 @@ func today() string {
 	return date.Add(-24 * time.Hour).Format("2006-01-02")
 }
 
+func todayUri() string {
+	return "/browse/" + today()
+}
+
+func prevUri(postdate string) string {
+	if postdate == "2015-01-01" {
+		return ""
+	}
+	date, err := time.Parse("2006-01-02", postdate)
+	if err != nil {
+		return ""
+	}
+        previousDay := date.AddDate(0, 0, -1)
+	return "/browse/" + previousDay.Format("2006-01-02")
+}
+
+func nextUri(postdate string) string {
+	if postdate == today() {
+		return ""
+	}
+	date, err := time.Parse("2006-01-02", postdate)
+	if err != nil {
+		return ""
+	}
+        nextDay := date.AddDate(0, 0, 1)
+	return "/browse/" + nextDay.Format("2006-01-02")
+}
+
 templ body(postdate string) {
 	<style>
 		.btm-right {
@@ -43,10 +71,6 @@ templ body(postdate string) {
 		}
 	</style>
 	<div class="btm-right" hx-ext="path-params">
-		<div>
-			<sl-icon library="default" name="chevron-left"></sl-icon>
-			<sl-icon library="default" name="chevron-right"></sl-icon>
-		</div>
 		<sl-input
 			type="date"
 			name="postdate"
@@ -59,6 +83,39 @@ templ body(postdate string) {
 			hx-trigger="input changed delay:1s"
 			hx-target="body"
 		></sl-input>
+		<div>
+			<sl-icon-button
+				library="default"
+				name="chevron-double-left"
+				hx-push-url="true"
+				hx-get="/browse/2015-01-01"
+				hx-target="body"
+			></sl-icon-button>
+
+			<sl-icon-button
+				library="default"
+				name="chevron-left"
+				hx-push-url="true"
+				hx-get={ prevUri(postdate) }
+				hx-target="body"
+			></sl-icon-button>
+			<sl-icon-button
+				library="default"
+				name="chevron-right"
+				hx-push-url="true"
+				hx-get={ nextUri(postdate) }
+				hx-target="body"
+			></sl-icon-button>
+
+			<sl-icon-button
+				library="default"
+				name="chevron-double-right"
+				hx-push-url="true"
+				hx-get={ todayUri() }
+				hx-target="body"
+			></sl-icon-button>
+
+		</div>
 	</div>
 	<div hx-get={ postUrl(postdate) } hx-swap="outerHTML" hx-trigger="load"></div>
 }
