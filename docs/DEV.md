@@ -70,6 +70,8 @@ nix-shell -p httrack
 - [x] Should I be writing this in ruby?
     - Intent is to learn htmx with go (learn templ later)
 - mistyped as nightlog.changley.com
+    - once in while this can be shown from the server side (P<0.02) and would act as an easter egg
+    - not going to implement it
 - [x] left right buttons (not naviagtion but date wise)
     - [ ] keyboard shortcuts
     - [ ] Bug with sholeace icons requests
