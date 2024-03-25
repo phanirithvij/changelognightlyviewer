@@ -1,7 +1,11 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"net/http"
+	"os"
+	"strconv"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -9,7 +13,24 @@ import (
 	"github.com/a-h/templ"
 )
 
-//go:generate nix run github:a-h/templ generate && nix run nixpkgs#gofumpt -- -w *.go
+var port int
+
+func init() {
+	flag.IntVar(&port, "port", 8080, "Port number to listen on")
+	help := flag.Bool("help", false, "Print usage information")
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, "Usage of %s:\n", os.Args[0])
+		flag.PrintDefaults()
+	}
+	flag.Parse()
+	if *help {
+		flag.Usage()
+		os.Exit(0)
+	}
+}
+
+//go:generate nix run github:a-h/templ generate
+//go:generate nix run nixpkgs#gofumpt -- -w .
 func main() {
 	e := echo.New()
 
@@ -18,11 +39,12 @@ func main() {
 	e.Use(middleware.Gzip())
 
 	e.GET("/browse", BodyHandler)
+	e.GET("/browse/", BodyHandler)
 	e.GET("/browse/:date", BodyHandler)
 	e.Static("/dist", "dist")
 	e.Static("/", "content")
 
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":" + strconv.Itoa(port)))
 }
 
 // https://github.com/a-h/templ/blob/main/examples/integration-echo/main.go
@@ -40,8 +62,6 @@ func BodyHandler(c echo.Context) error {
 	_, isHtmx := c.Request().Header["Hx-Request"]
 	postdate := c.Param("date")
 	if postdate == "" {
-		// TODO: default value should be the latest issue
-		// redirect to /browse/today?
 		postdate = today()
 	}
 	if !isHtmx {
