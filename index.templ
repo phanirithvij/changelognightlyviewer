@@ -11,12 +11,36 @@ templ index(postdate string) {
 			</style>
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/themes/dark.css"/>
 			<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/components/input/input.js"></script>
+			<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/components/icon/icon.js"></script>
+			<script type="module">
+				import { registerIconLibrary } from 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/utilities/icon-library.js';
+				console.log("registering bootstrap-icons 1.11.3");
+				registerIconLibrary('default', {
+					resolver: name => `https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/${name}.svg`
+				});
+			</script>
 		</head>
 		<body hx-ext="head-support shoelace">
-			@body(postdate)
 			<script src="/dist/js/htmx.min.js"></script>
         		<script src="/dist/js/head-support.js"></script>
         		<script src="/dist/js/htmx.ext.shoelace.js"></script>
+			<script>
+				// https://stackoverflow.com/a/68058914/8608146
+				// https://github.com/bigskysoftware/htmx/issues/1202
+				htmx.defineExtension('path-params', {
+					onEvent: function(name, evt) {
+						if (name === "htmx:configRequest") {
+							evt.detail.path = evt.detail.path.replace(/:([A-Za-z0-9_]+)/g, function (_, param) {
+								let val = evt.detail.parameters[param];
+								delete evt.detail.parameters[param];
+								return val;
+							})
+						}
+					}
+				});
+			</script>
+
+			@body(postdate)
 		</body>
 	</html>
 }

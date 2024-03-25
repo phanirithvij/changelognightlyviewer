@@ -1,0 +1,25 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "gofumpt@latest": {
+      "last_modified": "2024-03-08T13:51:52Z",
+      "resolved": "github:NixOS/nixpkgs/a343533bccc62400e8a9560423486a3b6c11a23b#gofumpt",
+      "source": "devbox-search",
+      "version": "0.6.0",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/fz2wp60n3r3lckd3zlz5navf6bhfky5v-gofumpt-0.6.0"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/p1kk72hmx8gjb37wiq46sl9llyhzk8jf-gofumpt-0.6.0"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/07246hvvsjg4rk7384mifx91h6k7w6i1-gofumpt-0.6.0"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/lcj9zg8bsbm5gil79lgzkkmqp9v0963k-gofumpt-0.6.0"
+        }
+      }
+    }
+  }
+}

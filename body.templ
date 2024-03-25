@@ -20,7 +20,8 @@ func today() string {
 
 templ body(postdate string) {
 	<style>
-		sl-input {
+		.btm-right {
+			display: flex;
 			color: #5ebc8f;
 			background: #000;
 			position: fixed;
@@ -29,21 +30,35 @@ templ body(postdate string) {
 			height: 1.8rem;
 			z-index: 222;
 			margin: 14px;
-			border-radius: 12px;
+			justify-content: center;
+			align-items: center;
+			border-radius: 10px;
+			padding-left: 3px;
+		}
+		sl-input {
+			position: relative;
+			bottom: 2px;
 			padding-left: 5px;
 			padding-right: 5px;
 		}
 	</style>
-	<sl-input
-		type="date"
-		name="postdate"
-		placeholder="Date"
-		value={ postdate }
-		min="2015-01-01"
-		max={ today() }
-		hx-post="/bod"
-		hx-trigger="input changed delay:1s"
-		hx-target="body"
-	></sl-input>
+	<div class="btm-right" hx-ext="path-params">
+		<div>
+			<sl-icon library="default" name="chevron-left"></sl-icon>
+			<sl-icon library="default" name="chevron-right"></sl-icon>
+		</div>
+		<sl-input
+			type="date"
+			name="postdate"
+			placeholder="Date"
+			value={ postdate }
+			min="2015-01-01"
+			max={ today() }
+			hx-get="/browse/:postdate"
+			hx-push-url="true"
+			hx-trigger="input changed delay:1s"
+			hx-target="body"
+		></sl-input>
+	</div>
 	<div hx-get={ postUrl(postdate) } hx-swap="outerHTML" hx-trigger="load"></div>
 }
