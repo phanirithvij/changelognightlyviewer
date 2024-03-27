@@ -29,6 +29,12 @@ templ index(postdate string) {
 					padding-left: 5px;
 					padding-right: 5px;
 				}
+				sl-icon-button:focus {
+					color: aliceblue;
+				}
+				#main:focus {
+					outline: none;
+				}
 			</style>
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/themes/dark.css"/>
 			<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/components/input/input.js"></script>
@@ -44,8 +50,9 @@ templ index(postdate string) {
 		</head>
 		<body hx-ext="head-support shoelace">
 			<script src="/dist/js/htmx.min.js"></script>
-        		<script src="/dist/js/head-support.js"></script>
-        		<script src="/dist/js/htmx.ext.shoelace.js"></script>
+			<script src="/dist/js/htmx.ext.head-support.js"></script>
+			<script src="/dist/js/htmx.ext.response-targets.js"></script>
+			<script src="/dist/js/htmx.ext.shoelace.js"></script>
 			<script>
 				// https://stackoverflow.com/a/68058914/8608146
 				// https://github.com/bigskysoftware/htmx/issues/1202
@@ -60,9 +67,15 @@ templ index(postdate string) {
 						}
 					}
 				});
-				document
-					.addEventListener("keydown", function (evt) {
-						if (evt.altKey) return;
+				document.addEventListener('DOMContentLoaded', function() {
+					document.querySelector("#main").focus();
+				});
+				document.body.addEventListener('htmx:afterSwap', function (e) {
+					let mainElt = document.querySelector("#main");
+					mainElt.focus();
+					mainElt
+						.addEventListener("keydown", function (evt) {
+						if (evt.altKey || evt.ctrlKey || evt.shiftKey) return;
 						if (evt.keyCode === 72 || evt.keyCode === 37) {
 							evt.preventDefault();
 							document.querySelector(".prev-date").click();
@@ -71,6 +84,7 @@ templ index(postdate string) {
 							document.querySelector(".next-date").click();
 						}
 					});
+				});
 			</script>
 
 			@body(postdate)

@@ -47,6 +47,7 @@ func nextUri(postdate string) string {
 }
 
 templ body(postdate string) {
+<div hx-ext="response-targets">
 	<div class="btm-right" hx-ext="path-params">
 		<sl-input
 			type="date"
@@ -96,5 +97,32 @@ templ body(postdate string) {
 
 		</div>
 	</div>
-	<div hx-get={ postUrl(postdate) } hx-swap="outerHTML" hx-trigger="load"></div>
+	<div
+		id="main"
+		tabindex="0"
+		style="height:100vh"
+		hx-get={ postUrl(postdate) }
+		hx-swap="innerHTML"
+		hx-target="#main"
+		hx-target-404="#main"
+		hx-trigger="load">
+	</div>
+	<script>
+		document.body.addEventListener('htmx:afterSwap', function (e) {
+			let mainElt = document.querySelector("#main");
+			mainElt.focus();
+			mainElt
+				.addEventListener("keydown", function (evt) {
+					if (evt.altKey || evt.ctrlKey || evt.shiftKey) return;
+					if (evt.keyCode === 72 || evt.keyCode === 37) {
+						evt.preventDefault();
+						document.querySelector(".prev-date").click();
+					} else if (evt.keyCode === 76 || evt.keyCode === 39) {
+						evt.preventDefault();
+						document.querySelector(".next-date").click();
+					}
+				});
+			});
+	</script>
+</div>
 }
