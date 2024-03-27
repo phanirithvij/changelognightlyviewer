@@ -75,6 +75,7 @@ templ body(postdate string) {
 				hx-push-url="true"
 				hx-get={ prevUri(postdate) }
 				hx-target="body"
+				class="prev-date"
 			></sl-icon-button>
 			<sl-icon-button
 				library="default"
@@ -82,6 +83,7 @@ templ body(postdate string) {
 				hx-push-url="true"
 				hx-get={ nextUri(postdate) }
 				hx-target="body"
+				class="next-date"
 			></sl-icon-button>
 
 			<sl-icon-button

@@ -34,9 +34,10 @@ templ index(postdate string) {
 			<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/components/input/input.js"></script>
 			<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/components/icon-button/icon-button.js"></script>
 			<script type="module">
-				import { registerIconLibrary } from 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/utilities/icon-library.js';
+				import { registerIconLibrary, unregisterIconLibrary } from 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.14.0/cdn/utilities/icon-library.js';
 				console.log("registering bootstrap-icons 1.11.3");
-				registerIconLibrary('default', {
+				unregisterIconLibrary("default");
+				registerIconLibrary("default", {
 					resolver: name => `https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/${name}.svg`
 				});
 			</script>
@@ -59,6 +60,17 @@ templ index(postdate string) {
 						}
 					}
 				});
+				document
+					.addEventListener("keydown", function (evt) {
+						if (evt.altKey) return;
+						if (evt.keyCode === 72 || evt.keyCode === 37) {
+							evt.preventDefault();
+							document.querySelector(".prev-date").click();
+						} else if (evt.keyCode === 76 || evt.keyCode === 39) {
+							evt.preventDefault();
+							document.querySelector(".next-date").click();
+						}
+					});
 			</script>
 
 			@body(postdate)

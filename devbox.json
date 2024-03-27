@@ -1,5 +1,8 @@
 {
-  "packages": ["gofumpt@latest"],
+  "packages": [
+    "gofumpt@latest",
+    "air@latest"
+  ],
   "shell": {
     "init_hook": [
       "echo 'Welcome to devbox!' > /dev/null"
