@@ -105,24 +105,53 @@ templ body(postdate string) {
 		hx-swap="innerHTML"
 		hx-target="#main"
 		hx-target-404="#main"
+		hx-indicator="#spinner"
 		hx-trigger="load">
 	</div>
-	<script>
-		document.body.addEventListener('htmx:afterSwap', function (e) {
-			let mainElt = document.querySelector("#main");
-			mainElt.focus();
-			mainElt
-				.addEventListener("keydown", function (evt) {
-					if (evt.altKey || evt.ctrlKey || evt.shiftKey) return;
-					if (evt.keyCode === 72 || evt.keyCode === 37) {
-						evt.preventDefault();
-						document.querySelector(".prev-date").click();
-					} else if (evt.keyCode === 76 || evt.keyCode === 39) {
-						evt.preventDefault();
-						document.querySelector(".next-date").click();
-					}
-				});
-			});
-	</script>
+	<style>
+	.htmx-indicator {
+		opacity: 0;
+		transition: opacity 200ms ease-in;
+	}
+	.htmx-request .htmx-indicator {
+		opacity: 1;
+	}
+	.htmx-request.htmx-indicator {
+		opacity: 1;
+	}
+	#spinner {
+		position: fixed;
+		bottom: 49%;
+		left: 49%;
+		scale: 2;
+		fill: #56ad83;
+	}
+	</style>
+	@loadingSvg()
 </div>
+}
+
+templ loadingSvg() {
+<svg id="spinner" class="htmx-indicator" width="17" height="16" viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg">
+    <rect y="10" width="15" height="120" rx="6">
+        <animate attributeName="height" begin="0.5s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+        <animate attributeName="y" begin="0.5s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+    </rect>
+    <rect x="30" y="10" width="15" height="120" rx="6">
+        <animate attributeName="height" begin="0.25s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+        <animate attributeName="y" begin="0.25s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+    </rect>
+    <rect x="60" width="15" height="140" rx="6">
+        <animate attributeName="height" begin="0s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+        <animate attributeName="y" begin="0s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+    </rect>
+    <rect x="90" y="10" width="15" height="120" rx="6">
+        <animate attributeName="height" begin="0.25s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+        <animate attributeName="y" begin="0.25s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+    </rect>
+    <rect x="120" y="10" width="15" height="120" rx="6">
+        <animate attributeName="height" begin="0.5s" dur="1s" values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear" repeatCount="indefinite"/>
+        <animate attributeName="y" begin="0.5s" dur="1s" values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear" repeatCount="indefinite"/>
+    </rect>
+</svg>
 }
