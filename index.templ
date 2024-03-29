@@ -10,6 +10,32 @@ templ index(postdate string, jsenabled bool) {
 				</noscript>
 			}
 			<link rel="stylesheet" href="/dist/css/index.css" />
+			<!-- prefetch the 4 issues -->
+			<link rel="prefetch"
+				href={ postUrl(firstDay) }
+			/>
+			<link rel="prefetch"
+				href={ postUrl(prevDay(postdate)) }
+			/>	
+			<link rel="prefetch"
+				href={ postUrl(nextDay(postdate)) }
+			/>
+			<link rel="prefetch"
+				href={ postUrl(today()) }
+			/>
+			<!-- prefetch the 4 urls -->
+			<link rel="prefetch"
+				href={ firstUri(jsenabled) }
+			/>
+			<link rel="prefetch"
+				href={ prevUri(postdate, jsenabled) }
+			/>
+			<link rel="prefetch"
+				href={ nextUri(postdate, jsenabled) }
+			/>
+			<link rel="prefetch"
+				href={ todayUri(jsenabled) }
+			/>
 		</head>
 		<body>
 			if jsenabled {
@@ -22,7 +48,6 @@ templ index(postdate string, jsenabled bool) {
 			}
 			<script src="/dist/js/htmx.min.js"></script>
 			<script src="/dist/js/htmx.ext.response-targets.js"></script>
-			<script src="/dist/js/quicklink.umd.js"></script>
 			<script>
 				// https://stackoverflow.com/a/68058914/8608146
 				// https://github.com/bigskysoftware/htmx/issues/1202
@@ -57,24 +82,13 @@ templ index(postdate string, jsenabled bool) {
 							document.querySelector(".next-date").click();
 						}
 					});
-					//document.querySelector('#instantjs')?.remove();
-					//let instant = document.createElement('script');
-					//instant.id = "instantjs";
-					//instant.src = "/dist/js/instant.js";
-					//document.body.appendChild(instant);
-
-					//quicklink.listen();
-					let td = new Date(document.location.href.split('/')[4]);
-					td.setDate(td.getDate() - 1);
-					let prevDay = `/browse/${td.toISOString().split('T')[0]}`;
-					td.setDate(td.getDate() + 2);
-					let nextDay = `/browse/${td.toISOString().split('T')[0]}`;
-					console.log("prefetching", prevDay, nextDay);
-					quicklink.prefetch([nextDay, prevDay]);
 				});
 			</script>
 
 			@body(postdate, jsenabled)
+			if jsenabled {
+				@loadingSvg()
+			}
 		</body>
 	</html>
 }

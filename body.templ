@@ -26,6 +26,16 @@ func today() string {
 	return date.Add(-24 * time.Hour).Format("2006-01-02")
 }
 
+const firstDay = "2015-01-01"
+
+func nextDay(postdate string) string {
+	return dayoffset(postdate, 1)
+}
+
+func prevDay(postdate string) string {
+	return dayoffset(postdate, -1)
+}
+
 func firstUri(jsenabled bool) string {
 	return getPrefix(jsenabled) + "2015-01-01"
 }
@@ -34,13 +44,18 @@ func todayUri(jsenabled bool) string {
 	return getPrefix(jsenabled) + today()
 }
 
-func dayoffsetUri(postdate string, offset int, jsenabled bool) string {
+
+func dayoffset(postdate string, offset int) string {
 	date, err := time.Parse("2006-01-02", postdate)
 	if err != nil {
 		return ""
 	}
         otherDay := date.AddDate(0, 0, offset)
-	return getPrefix(jsenabled) + otherDay.Format("2006-01-02")
+	return otherDay.Format("2006-01-02")
+}
+
+func dayoffsetUri(postdate string, offset int, jsenabled bool) string {
+	return getPrefix(jsenabled) + dayoffset(postdate, offset)
 }
 
 func nextUri(postdate string, jsenabled bool) string {
@@ -125,7 +140,6 @@ if jsenabled {
 		hx-indicator="#spinner"
 		hx-trigger="load">
 	</div>
-	@loadingSvg()
 } else {
 	<iframe
 		id="main"

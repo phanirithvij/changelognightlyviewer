@@ -36,6 +36,16 @@ func today() string {
 	return date.Add(-24 * time.Hour).Format("2006-01-02")
 }
 
+const firstDay = "2015-01-01"
+
+func nextDay(postdate string) string {
+	return dayoffset(postdate, 1)
+}
+
+func prevDay(postdate string) string {
+	return dayoffset(postdate, -1)
+}
+
 func firstUri(jsenabled bool) string {
 	return getPrefix(jsenabled) + "2015-01-01"
 }
@@ -44,13 +54,17 @@ func todayUri(jsenabled bool) string {
 	return getPrefix(jsenabled) + today()
 }
 
-func dayoffsetUri(postdate string, offset int, jsenabled bool) string {
+func dayoffset(postdate string, offset int) string {
 	date, err := time.Parse("2006-01-02", postdate)
 	if err != nil {
 		return ""
 	}
 	otherDay := date.AddDate(0, 0, offset)
-	return getPrefix(jsenabled) + otherDay.Format("2006-01-02")
+	return otherDay.Format("2006-01-02")
+}
+
+func dayoffsetUri(postdate string, offset int, jsenabled bool) string {
+	return getPrefix(jsenabled) + dayoffset(postdate, offset)
 }
 
 func nextUri(postdate string, jsenabled bool) string {
@@ -87,7 +101,7 @@ func body(postdate string, jsenabled bool) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(postdate)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 70, Col: 19}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 85, Col: 19}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -100,7 +114,7 @@ func body(postdate string, jsenabled bool) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(today())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 72, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 87, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -154,17 +168,13 @@ func body(postdate string, jsenabled bool) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 121, Col: 28}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 136, Col: 28}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-swap=\"innerHTML\" hx-target=\"#main\" hx-target-404=\"#main\" hx-indicator=\"#spinner\" hx-trigger=\"load\"></div>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = loadingSvg().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -176,7 +186,7 @@ func body(postdate string, jsenabled bool) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 133, Col: 25}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 147, Col: 25}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
