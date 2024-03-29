@@ -43,6 +43,9 @@ func main() {
 	e.GET("/browsehtml", BodyHandlerNoJs)
 	e.GET("/browsehtml/", BodyHandlerNoJs)
 
+	e.GET("/cal", Calendar)
+	e.GET("/cal/", Calendar)
+
 	e.Static("/dist", "dist")
 	e.Static("/", "content")
 
@@ -78,4 +81,14 @@ func BodyHandlerNoJs(c echo.Context) error {
 	}
 	jsenabled := false
 	return Render(c, http.StatusOK, index(postdate, jsenabled))
+}
+
+func Calendar(c echo.Context) error {
+	date := c.QueryParam("date")
+	year := c.QueryParam("yyyy")
+	month := c.QueryParam("mm")
+	if date == "" {
+		date = today()
+	}
+	return Render(c, http.StatusOK, calendar(date, year, month))
 }

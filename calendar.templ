@@ -1,0 +1,88 @@
+package main
+
+import (
+    "strconv"
+    "strings"
+    "time"
+)
+
+
+func generateCalendarHTML(dateStr, viewy, viewm string) string {
+    dateParts := strings.Split(dateStr, "-")
+    year, _ := strconv.Atoi(dateParts[0])
+    month, _ := strconv.Atoi(dateParts[1])
+    day, _ := strconv.Atoi(dateParts[2])
+
+    if viewy == "" {
+        viewy = dateParts[0]
+    }
+    if viewm == "" {
+        viewm = dateParts[1]
+    }
+    viewyear, _ := strconv.Atoi(viewy)
+    viewmonth, _ := strconv.Atoi(viewm)
+
+    t := time.Date(viewyear, time.Month(viewmonth), 1, 0, 0, 0, 0, time.UTC)
+    startDay := int(t.Weekday())
+
+    nextDay := time.Date(viewyear, time.Month(viewmonth+1), 0, 0, 0, 0, 0, time.UTC)
+    daysInMonth := nextDay.Day()
+    previousDay := t.AddDate(0, 0, -1)
+
+    nextDay = nextDay.AddDate(0, 0, 1)
+    pyear := previousDay.Year()
+    nyear := nextDay.Year()
+    pmonth := int(previousDay.Month())
+    nmonth := int(nextDay.Month())
+
+    html := t.Month().String()[:3] + " " + viewy
+    html += "<a href='/cal?date=" + dateStr + "&yyyy=" + strconv.Itoa(pyear) + "&mm=" + strconv.Itoa(pmonth) + "'>&lt;</a>"
+    html += "<table hx-boost='true'>"
+    html += "<tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>"
+
+    d := 1
+
+    for d <= daysInMonth {
+        html += "<tr>"
+        for i := 0; i < 7; i++ {
+            if i < startDay && d == 1 {
+                html += "<td></td>"
+            } else if d <= daysInMonth {
+                if d == day && viewyear == year && viewmonth == month {
+                    html += "<td class='selected-date'>" + strconv.Itoa(d) + "</td>"
+                } else {
+                    html += "<td>" + "<a href='/cal?date=" +
+                        time.Date(viewyear, time.Month(viewmonth), d, 0, 0, 0, 0, time.UTC).Format("2006-01-02") +
+                        "&yyyy=" + viewy + "&mm=" + viewm +
+                        "'>" + strconv.Itoa(d) + "</td>"
+                }
+		d++
+            } else {
+                html += "<td></td>"
+            }
+        }
+        html += "</tr>"
+    }
+
+    html += "</table>"
+
+    html += "<a href='/cal?date=" + dateStr + "&yyyy=" + strconv.Itoa(nyear) + "&mm=" + strconv.Itoa(nmonth) + "'>&gt;</a>"
+    html += "<a href='/cal?date=" + dateStr + "'>jump to selected</a>"
+    return html
+}
+
+templ calendar(dateStr, viewyear, viewmonth string) {
+	<style>
+		.selected-date {
+			color: red;
+		}
+		#cal {
+			display: flex;
+			align-items: start;
+			justify-content: space-between;
+		}
+	</style>
+	<div id="cal">
+		@templ.Raw(generateCalendarHTML(dateStr, viewyear, viewmonth))
+	</div>
+}
