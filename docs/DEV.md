@@ -42,7 +42,7 @@ To get the content (CORS issue prevents loading it directly via htmx)
 mkdir -p content && cd content
 nix-shell -p httrack
 ```
-`httrack "https://nightly.changelog.com" -O . "-*email*"`
+`httrack "https://nightly.changelog.com" -O . "-*email*" --preserve`
 
 ## TODO
 
@@ -73,9 +73,9 @@ nix-shell -p httrack
     - once in while this can be shown from the server side (P<0.02) and would act as an easter egg
     - not going to implement it
 - [x] left right buttons (not naviagtion but date wise)
-    - [ ] keyboard shortcuts
-    - [ ] Bug with sholeace icons requests
-    - [ ] disable hx-get for empty urls
+    - [x] keyboard shortcuts
+    - [x] Bug with sholeace icons requests
+    - [x] disable hx-get for empty urls
 - [ ] Vendor all deps
     - Client side
     - [x] htmx
