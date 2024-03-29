@@ -6,22 +6,21 @@ templ index(postdate string, jsenabled bool) {
 		<head>
 			if jsenabled {
 				<noscript>
-					<meta http-equiv="refresh" content="5.0; url=/browsehtml" />
+					<meta http-equiv="refresh" content="3.0; url=/browsehtml" />
 				</noscript>
 			}
 			<link rel="stylesheet" href="/dist/css/index.css" />
 		</head>
-		<body hx-ext="head-support">
+		<body>
 			if jsenabled {
 				<noscript>
 					<div style="color: wheat">
 						<p>This site is best viewed with Javascript.</p>
-						<p>Automatically redirecting to the html version in 5 sec.</p>
+						<p>Automatically redirecting to the html version in 3 sec.</p>
 					</div>
 				</noscript>
 			}
 			<script src="/dist/js/htmx.min.js"></script>
-			<script src="/dist/js/htmx.ext.head-support.js"></script>
 			<script src="/dist/js/htmx.ext.response-targets.js"></script>
 			<script src="/dist/js/quicklink.umd.js"></script>
 			<script>
@@ -40,6 +39,9 @@ templ index(postdate string, jsenabled bool) {
 				});
 				document.addEventListener('DOMContentLoaded', function() {
 					document.querySelector("#main").focus();
+					if (window.location.href.includes("/browsehtml")) {
+						window.location.href = window.location.href.replace("/browsehtml", "/browse");
+					}
 				});
 				document.body.addEventListener('htmx:afterSwap', function (e) {
 					let mainElt = document.querySelector("#main");

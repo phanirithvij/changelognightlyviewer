@@ -74,3 +74,22 @@ body {
 	height: 100vh;
 	color: wheat;
 }
+
+.htmx-indicator {
+	opacity: 0;
+	transition: opacity 200ms ease-in;
+}
+.htmx-request .htmx-indicator {
+	opacity: 1;
+}
+.htmx-request.htmx-indicator {
+	opacity: 1;
+}
+#spinner {
+	position: fixed;
+	bottom: 49%;
+	left: 49%;
+	scale: 2;
+	fill: #56ad83;
+}
+

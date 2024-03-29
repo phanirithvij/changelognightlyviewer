@@ -114,7 +114,7 @@ templ body(postdate string, jsenabled bool) {
 		</div>
 	</div>
 
-	if jsenabled {
+if jsenabled {
 	<div
 		id="main"
 		tabindex="0"
@@ -125,35 +125,15 @@ templ body(postdate string, jsenabled bool) {
 		hx-indicator="#spinner"
 		hx-trigger="load">
 	</div>
-
-	<style>
-	.htmx-indicator {
-		opacity: 0;
-		transition: opacity 200ms ease-in;
-	}
-	.htmx-request .htmx-indicator {
-		opacity: 1;
-	}
-	.htmx-request.htmx-indicator {
-		opacity: 1;
-	}
-	#spinner {
-		position: fixed;
-		bottom: 49%;
-		left: 49%;
-		scale: 2;
-		fill: #56ad83;
-	}
-	</style>
-		@loadingSvg()
-	} else {
+	@loadingSvg()
+} else {
 	<iframe
 		id="main"
 		tabindex="0"
 		src={ postUrl(postdate) }
 		>
 	</iframe>
-	}
+}
 </div>
 }
 

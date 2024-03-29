@@ -160,7 +160,7 @@ func body(postdate string, jsenabled bool) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-swap=\"innerHTML\" hx-target=\"#main\" hx-target-404=\"#main\" hx-indicator=\"#spinner\" hx-trigger=\"load\"></div><style>\n\t.htmx-indicator {\n\t\topacity: 0;\n\t\ttransition: opacity 200ms ease-in;\n\t}\n\t.htmx-request .htmx-indicator {\n\t\topacity: 1;\n\t}\n\t.htmx-request.htmx-indicator {\n\t\topacity: 1;\n\t}\n\t#spinner {\n\t\tposition: fixed;\n\t\tbottom: 49%;\n\t\tleft: 49%;\n\t\tscale: 2;\n\t\tfill: #56ad83;\n\t}\n\t</style> ")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-swap=\"innerHTML\" hx-target=\"#main\" hx-target-404=\"#main\" hx-indicator=\"#spinner\" hx-trigger=\"load\"></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -176,7 +176,7 @@ func body(postdate string, jsenabled bool) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 153, Col: 25}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 133, Col: 25}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
