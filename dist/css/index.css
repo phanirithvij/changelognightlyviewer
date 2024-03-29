@@ -1,0 +1,76 @@
+@import url("/nightly.changelog.com/night-theme.css");
+
+:root {
+	--primary-green: #5ebc8f;
+}
+
+body {
+	background-color: #101820;
+}
+
+.btm-right {
+	scale: 1.5;
+	display: flex;
+	color: var(--primary-green);
+	background: #000;
+	position: fixed;
+	bottom: 0;
+	right: 42px;
+	height: 1.8rem;
+	z-index: 222;
+	margin: 14px;
+	justify-content: center;
+	border-radius: 10px;
+	padding-right: 6px;
+}
+
+#main:focus {
+	outline: none;
+}
+
+.glink {
+	text-decoration: none;
+	color: var(--primary-green);
+}
+
+.glink:visited {
+	color: var(--primary-green);
+}
+
+.prev-date {
+	letter-spacing: 0;
+}
+
+.next-date {
+	letter-spacing: 0;
+}
+
+.glink {
+	letter-spacing: -3px;
+	padding: 2px;
+}
+
+.btm-right {
+	user-select: none;
+}
+
+.btm-right input {
+	background: #000;
+	color: var(--primary-green);
+	border: none;
+	transform: translateY(2px);
+}
+
+#date-go {
+	border: none;
+	background: none;
+	color: var(--primary-green);
+	cursor: pointer;
+}
+
+#main {
+	border: none;
+	width: 100vw;
+	height: 100vh;
+	color: wheat;
+}

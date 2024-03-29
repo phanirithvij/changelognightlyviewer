@@ -7,6 +7,14 @@ func postUrl(postdate string) string {
 	return "/nightly.changelog.com/" + strings.ReplaceAll(postdate, "-", "/")
 }
 
+func getPrefix(jsenabled bool) string {
+	pref := "/browsehtml/"
+	if jsenabled {
+		pref = "/browse/"
+	}
+	return pref + "?postdate="
+}
+
 func today() string {
 	loc, _ := time.LoadLocation("America/Chicago")
 	date := time.Now().In(loc)
@@ -18,89 +26,98 @@ func today() string {
 	return date.Add(-24 * time.Hour).Format("2006-01-02")
 }
 
-func todayUri() string {
-	return "/browse/" + today()
+func firstUri(jsenabled bool) string {
+	return getPrefix(jsenabled) + "2015-01-01"
 }
 
-func prevUri(postdate string) string {
-	if postdate == "2015-01-01" {
-		return ""
-	}
+func todayUri(jsenabled bool) string {
+	return getPrefix(jsenabled) + today()
+}
+
+func dayoffsetUri(postdate string, offset int, jsenabled bool) string {
 	date, err := time.Parse("2006-01-02", postdate)
 	if err != nil {
 		return ""
 	}
-        previousDay := date.AddDate(0, 0, -1)
-	return "/browse/" + previousDay.Format("2006-01-02")
+        otherDay := date.AddDate(0, 0, offset)
+	return getPrefix(jsenabled) + otherDay.Format("2006-01-02")
 }
 
-func nextUri(postdate string) string {
+func nextUri(postdate string, jsenabled bool) string {
 	if postdate == today() {
 		return ""
 	}
-	date, err := time.Parse("2006-01-02", postdate)
-	if err != nil {
-		return ""
-	}
-        nextDay := date.AddDate(0, 0, 1)
-	return "/browse/" + nextDay.Format("2006-01-02")
+	return dayoffsetUri(postdate, 1, jsenabled)
 }
 
-templ body(postdate string) {
+func prevUri(postdate string, jsenabled bool) string {
+	if postdate == "2015-01-01" {
+		return ""
+	}
+	return dayoffsetUri(postdate, -1, jsenabled)
+}
+
+templ body(postdate string, jsenabled bool) {
 <div hx-ext="response-targets">
+<style>
+</style>
 	<div class="btm-right" hx-ext="path-params">
-		<sl-input
+		<form>
+		<input
 			type="date"
 			name="postdate"
 			placeholder="Date"
 			value={ postdate }
 			min="2015-01-01"
 			max={ today() }
-			hx-get="/browse/:postdate"
+			hx-get="/browse?postdate=:postdate"
 			hx-push-url="true"
 			hx-trigger="input changed delay:1s"
 			hx-target="body"
-		></sl-input>
-		<div>
-			<sl-icon-button
+		></input>
+		<button type="submit" id="date-go" style="display: none">go</button>
+		</form>
+		<div hx-boost="true">
+			<a
 				library="default"
 				name="chevron-double-left"
 				hx-push-url="true"
-				hx-get="/browse/2015-01-01"
+				href={ templ.SafeURL(firstUri(jsenabled)) }
 				hx-target="body"
-			></sl-icon-button>
-
-			<sl-icon-button
+				class="glink"
+			>&lt;&lt;</a>
+			<a
 				library="default"
 				name="chevron-left"
 				hx-push-url="true"
-				hx-get={ prevUri(postdate) }
+				href={ templ.SafeURL(prevUri(postdate, jsenabled)) }
 				hx-target="body"
-				class="prev-date"
-			></sl-icon-button>
-			<sl-icon-button
+				class="prev-date glink"
+			>&lt;</a>
+			<a
 				library="default"
 				name="chevron-right"
 				hx-push-url="true"
-				hx-get={ nextUri(postdate) }
+				href={ templ.SafeURL(nextUri(postdate, jsenabled)) }
 				hx-target="body"
-				class="next-date"
-			></sl-icon-button>
-
-			<sl-icon-button
+				class="next-date glink"
+			>&gt;</a>
+			<a
 				library="default"
 				name="chevron-double-right"
 				hx-push-url="true"
-				hx-get={ todayUri() }
+				href={ templ.SafeURL(todayUri(jsenabled)) }
 				hx-target="body"
-			></sl-icon-button>
+				class="glink"
+			>&gt;&gt;</a>
 
 		</div>
 	</div>
+
+	if jsenabled {
 	<div
 		id="main"
 		tabindex="0"
-		style="height:100vh"
 		hx-get={ postUrl(postdate) }
 		hx-swap="innerHTML"
 		hx-target="#main"
@@ -108,6 +125,7 @@ templ body(postdate string) {
 		hx-indicator="#spinner"
 		hx-trigger="load">
 	</div>
+
 	<style>
 	.htmx-indicator {
 		opacity: 0;
@@ -127,7 +145,15 @@ templ body(postdate string) {
 		fill: #56ad83;
 	}
 	</style>
-	@loadingSvg()
+		@loadingSvg()
+	} else {
+	<iframe
+		id="main"
+		tabindex="0"
+		src={ postUrl(postdate) }
+		>
+	</iframe>
+	}
 </div>
 }
 

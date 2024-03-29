@@ -17,6 +17,14 @@ func postUrl(postdate string) string {
 	return "/nightly.changelog.com/" + strings.ReplaceAll(postdate, "-", "/")
 }
 
+func getPrefix(jsenabled bool) string {
+	pref := "/browsehtml/"
+	if jsenabled {
+		pref = "/browse/"
+	}
+	return pref + "?postdate="
+}
+
 func today() string {
 	loc, _ := time.LoadLocation("America/Chicago")
 	date := time.Now().In(loc)
@@ -28,35 +36,38 @@ func today() string {
 	return date.Add(-24 * time.Hour).Format("2006-01-02")
 }
 
-func todayUri() string {
-	return "/browse/" + today()
+func firstUri(jsenabled bool) string {
+	return getPrefix(jsenabled) + "2015-01-01"
 }
 
-func prevUri(postdate string) string {
-	if postdate == "2015-01-01" {
-		return ""
-	}
+func todayUri(jsenabled bool) string {
+	return getPrefix(jsenabled) + today()
+}
+
+func dayoffsetUri(postdate string, offset int, jsenabled bool) string {
 	date, err := time.Parse("2006-01-02", postdate)
 	if err != nil {
 		return ""
 	}
-	previousDay := date.AddDate(0, 0, -1)
-	return "/browse/" + previousDay.Format("2006-01-02")
+	otherDay := date.AddDate(0, 0, offset)
+	return getPrefix(jsenabled) + otherDay.Format("2006-01-02")
 }
 
-func nextUri(postdate string) string {
+func nextUri(postdate string, jsenabled bool) string {
 	if postdate == today() {
 		return ""
 	}
-	date, err := time.Parse("2006-01-02", postdate)
-	if err != nil {
-		return ""
-	}
-	nextDay := date.AddDate(0, 0, 1)
-	return "/browse/" + nextDay.Format("2006-01-02")
+	return dayoffsetUri(postdate, 1, jsenabled)
 }
 
-func body(postdate string) templ.Component {
+func prevUri(postdate string, jsenabled bool) string {
+	if postdate == "2015-01-01" {
+		return ""
+	}
+	return dayoffsetUri(postdate, -1, jsenabled)
+}
+
+func body(postdate string, jsenabled bool) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -69,14 +80,14 @@ func body(postdate string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div hx-ext=\"response-targets\"><div class=\"btm-right\" hx-ext=\"path-params\"><sl-input type=\"date\" name=\"postdate\" placeholder=\"Date\" value=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div hx-ext=\"response-targets\"><style>\n</style><div class=\"btm-right\" hx-ext=\"path-params\"><form><input type=\"date\" name=\"postdate\" placeholder=\"Date\" value=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(postdate)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 56, Col: 19}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 70, Col: 19}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -89,71 +100,92 @@ func body(postdate string) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(today())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 58, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 72, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-get=\"/browse/:postdate\" hx-push-url=\"true\" hx-trigger=\"input changed delay:1s\" hx-target=\"body\"></sl-input><div><sl-icon-button library=\"default\" name=\"chevron-double-left\" hx-push-url=\"true\" hx-get=\"/browse/2015-01-01\" hx-target=\"body\"></sl-icon-button> <sl-icon-button library=\"default\" name=\"chevron-left\" hx-push-url=\"true\" hx-get=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-get=\"/browse?postdate=:postdate\" hx-push-url=\"true\" hx-trigger=\"input changed delay:1s\" hx-target=\"body\"> <button type=\"submit\" id=\"date-go\" style=\"display: none\">go</button></form><div hx-boost=\"true\"><a library=\"default\" name=\"chevron-double-left\" hx-push-url=\"true\" href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(prevUri(postdate))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 77, Col: 30}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+		var templ_7745c5c3_Var4 templ.SafeURL = templ.SafeURL(firstUri(jsenabled))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var4)))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\" class=\"prev-date\"></sl-icon-button> <sl-icon-button library=\"default\" name=\"chevron-right\" hx-push-url=\"true\" hx-get=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\" class=\"glink\">&lt;&lt;</a> <a library=\"default\" name=\"chevron-left\" hx-push-url=\"true\" href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var5 string
-		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(nextUri(postdate))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 85, Col: 30}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+		var templ_7745c5c3_Var5 templ.SafeURL = templ.SafeURL(prevUri(postdate, jsenabled))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var5)))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\" class=\"next-date\"></sl-icon-button> <sl-icon-button library=\"default\" name=\"chevron-double-right\" hx-push-url=\"true\" hx-get=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\" class=\"prev-date glink\">&lt;</a> <a library=\"default\" name=\"chevron-right\" hx-push-url=\"true\" href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var6 string
-		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(todayUri())
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 94, Col: 23}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		var templ_7745c5c3_Var6 templ.SafeURL = templ.SafeURL(nextUri(postdate, jsenabled))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var6)))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\"></sl-icon-button></div></div><div id=\"main\" tabindex=\"0\" style=\"height:100vh\" hx-get=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\" class=\"next-date glink\">&gt;</a> <a library=\"default\" name=\"chevron-double-right\" hx-push-url=\"true\" href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var7 string
-		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 104, Col: 28}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+		var templ_7745c5c3_Var7 templ.SafeURL = templ.SafeURL(todayUri(jsenabled))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var7)))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-swap=\"innerHTML\" hx-target=\"#main\" hx-target-404=\"#main\" hx-indicator=\"#spinner\" hx-trigger=\"load\"></div><style>\n\t.htmx-indicator {\n\t\topacity: 0;\n\t\ttransition: opacity 200ms ease-in;\n\t}\n\t.htmx-request .htmx-indicator {\n\t\topacity: 1;\n\t}\n\t.htmx-request.htmx-indicator {\n\t\topacity: 1;\n\t}\n\t#spinner {\n\t\tposition: fixed;\n\t\tbottom: 49%;\n\t\tleft: 49%;\n\t\tscale: 2;\n\t\tfill: #56ad83;\n\t}\n\t</style>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-target=\"body\" class=\"glink\">&gt;&gt;</a></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = loadingSvg().Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
+		if jsenabled {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"main\" tabindex=\"0\" hx-get=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var8 string
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 121, Col: 28}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" hx-swap=\"innerHTML\" hx-target=\"#main\" hx-target-404=\"#main\" hx-indicator=\"#spinner\" hx-trigger=\"load\"></div><style>\n\t.htmx-indicator {\n\t\topacity: 0;\n\t\ttransition: opacity 200ms ease-in;\n\t}\n\t.htmx-request .htmx-indicator {\n\t\topacity: 1;\n\t}\n\t.htmx-request.htmx-indicator {\n\t\topacity: 1;\n\t}\n\t#spinner {\n\t\tposition: fixed;\n\t\tbottom: 49%;\n\t\tleft: 49%;\n\t\tscale: 2;\n\t\tfill: #56ad83;\n\t}\n\t</style> ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = loadingSvg().Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		} else {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<iframe id=\"main\" tabindex=\"0\" src=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var9 string
+			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(postUrl(postdate))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `body.templ`, Line: 153, Col: 25}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"></iframe>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
 		if templ_7745c5c3_Err != nil {
@@ -174,9 +206,9 @@ func loadingSvg() templ.Component {
 			defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var8 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var8 == nil {
-			templ_7745c5c3_Var8 = templ.NopComponent
+		templ_7745c5c3_Var10 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var10 == nil {
+			templ_7745c5c3_Var10 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg id=\"spinner\" class=\"htmx-indicator\" width=\"17\" height=\"16\" viewBox=\"0 0 135 140\" xmlns=\"http://www.w3.org/2000/svg\"><rect y=\"10\" width=\"15\" height=\"120\" rx=\"6\"><animate attributeName=\"height\" begin=\"0.5s\" dur=\"1s\" values=\"120;110;100;90;80;70;60;50;40;140;120\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate> <animate attributeName=\"y\" begin=\"0.5s\" dur=\"1s\" values=\"10;15;20;25;30;35;40;45;50;0;10\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate></rect> <rect x=\"30\" y=\"10\" width=\"15\" height=\"120\" rx=\"6\"><animate attributeName=\"height\" begin=\"0.25s\" dur=\"1s\" values=\"120;110;100;90;80;70;60;50;40;140;120\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate> <animate attributeName=\"y\" begin=\"0.25s\" dur=\"1s\" values=\"10;15;20;25;30;35;40;45;50;0;10\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate></rect> <rect x=\"60\" width=\"15\" height=\"140\" rx=\"6\"><animate attributeName=\"height\" begin=\"0s\" dur=\"1s\" values=\"120;110;100;90;80;70;60;50;40;140;120\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate> <animate attributeName=\"y\" begin=\"0s\" dur=\"1s\" values=\"10;15;20;25;30;35;40;45;50;0;10\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate></rect> <rect x=\"90\" y=\"10\" width=\"15\" height=\"120\" rx=\"6\"><animate attributeName=\"height\" begin=\"0.25s\" dur=\"1s\" values=\"120;110;100;90;80;70;60;50;40;140;120\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate> <animate attributeName=\"y\" begin=\"0.25s\" dur=\"1s\" values=\"10;15;20;25;30;35;40;45;50;0;10\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate></rect> <rect x=\"120\" y=\"10\" width=\"15\" height=\"120\" rx=\"6\"><animate attributeName=\"height\" begin=\"0.5s\" dur=\"1s\" values=\"120;110;100;90;80;70;60;50;40;140;120\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate> <animate attributeName=\"y\" begin=\"0.5s\" dur=\"1s\" values=\"10;15;20;25;30;35;40;45;50;0;10\" calcMode=\"linear\" repeatCount=\"indefinite\"></animate></rect></svg>")

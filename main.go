@@ -40,7 +40,10 @@ func main() {
 
 	e.GET("/browse", BodyHandler)
 	e.GET("/browse/", BodyHandler)
-	e.GET("/browse/:date", BodyHandler)
+
+	e.GET("/browsehtml", BodyHandlerNoJs)
+	e.GET("/browsehtml/", BodyHandlerNoJs)
+
 	e.Static("/dist", "dist")
 	e.Static("/", "content")
 
@@ -54,18 +57,25 @@ func Render(ctx echo.Context, statusCode int, t templ.Component) error {
 	return t.Render(ctx.Request().Context(), ctx.Response().Writer)
 }
 
-func HomeHandler(c echo.Context) error {
-	return Render(c, http.StatusOK, index("2016-02-02"))
-}
-
 func BodyHandler(c echo.Context) error {
 	_, isHtmx := c.Request().Header["Hx-Request"]
-	postdate := c.Param("date")
+	jsenabled := true
+	postdate := c.QueryParam("postdate")
 	if postdate == "" {
 		postdate = today()
 	}
 	if !isHtmx {
-		return Render(c, http.StatusOK, index(postdate))
+		return Render(c, http.StatusOK, index(postdate, jsenabled))
 	}
-	return Render(c, http.StatusOK, body(postdate))
+	return Render(c, http.StatusOK, body(postdate, jsenabled))
+}
+
+func BodyHandlerNoJs(c echo.Context) error {
+	postdate := c.QueryParam("postdate")
+	if postdate == "" {
+		postdate = today()
+		postdate = "2015-01-01"
+	}
+	jsenabled := false
+	return Render(c, http.StatusOK, index(postdate, jsenabled))
 }
