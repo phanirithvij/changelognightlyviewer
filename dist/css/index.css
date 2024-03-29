@@ -2,10 +2,12 @@
 
 :root {
 	--primary-green: #5ebc8f;
+	color-scheme: dark;
 }
 
 body {
 	background-color: #101820;
+	overflow: hidden;
 }
 
 .btm-right {
