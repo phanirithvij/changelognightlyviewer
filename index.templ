@@ -1,12 +1,16 @@
 package main
 
+func refreshUri(postdate string) string {
+	return "3.0; url=" + "/browsehtml?postdate=" + postdate
+}
+
 templ index(postdate string, jsenabled bool) {
 	<!DOCTYPE html>
 	<html>
 		<head>
 			if jsenabled {
 				<noscript>
-					<meta http-equiv="refresh" content="3.0; url=/browsehtml" />
+					<meta http-equiv="refresh" content={ refreshUri(postdate) } />
 				</noscript>
 			}
 			<link rel="stylesheet" href="/dist/css/index.css" />

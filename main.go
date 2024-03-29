@@ -33,14 +33,15 @@ func init() {
 //go:generate nix run nixpkgs#gofumpt -- -w .
 func main() {
 	e := echo.New()
-	e.Pre(middleware.RemoveTrailingSlash())
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 	e.Use(middleware.Gzip())
 
 	e.GET("/browse", BodyHandler)
+	e.GET("/browse/", BodyHandler)
 	e.GET("/browsehtml", BodyHandlerNoJs)
+	e.GET("/browsehtml/", BodyHandlerNoJs)
 
 	e.Static("/dist", "dist")
 	e.Static("/", "content")
@@ -61,6 +62,7 @@ func BodyHandler(c echo.Context) error {
 	postdate := c.QueryParam("postdate")
 	if postdate == "" {
 		postdate = today()
+		return c.Redirect(307, "/browse?postdate="+postdate)
 	}
 	if !isHtmx {
 		return Render(c, http.StatusOK, index(postdate, jsenabled))
@@ -72,6 +74,7 @@ func BodyHandlerNoJs(c echo.Context) error {
 	postdate := c.QueryParam("postdate")
 	if postdate == "" {
 		postdate = today()
+		return c.Redirect(307, "/browsehtml?postdate="+postdate)
 	}
 	jsenabled := false
 	return Render(c, http.StatusOK, index(postdate, jsenabled))
