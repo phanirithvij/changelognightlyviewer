@@ -16,10 +16,10 @@ body {
 	position: fixed;
 	bottom: 0;
 	right: 42px;
-	height: 1.8rem;
 	z-index: 222;
-	margin: 14px;
+	margin: 10px;
 	justify-content: center;
+	align-items: center;
 	border-radius: 10px;
 	padding-right: 6px;
 }
@@ -58,7 +58,6 @@ body {
 	background: #000;
 	color: var(--primary-green);
 	border: none;
-	transform: translateY(2px);
 }
 
 #date-go {
@@ -73,17 +72,21 @@ body {
 	width: 100vw;
 	height: 100vh;
 	color: wheat;
+	overflow-y: scroll;
 }
 
 .htmx-indicator {
 	opacity: 0;
+	visibility: hidden;
 	transition: opacity 200ms ease-in;
 }
 .htmx-request .htmx-indicator {
 	opacity: 1;
+	visibility: visible;
 }
 .htmx-request.htmx-indicator {
 	opacity: 1;
+	visibility: visible;
 }
 #spinner {
 	position: fixed;
@@ -93,3 +96,33 @@ body {
 	fill: #56ad83;
 }
 
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* You can adjust the width as needed */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555; /* Dark color for the thumb */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; /* Darker color on hover */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #333; /* Dark color for the track */
+}
+
+/* Handle when it's dragging */
+::-webkit-scrollbar-thumb:active {
+  background: #666; /* Darker color when dragging */
+}

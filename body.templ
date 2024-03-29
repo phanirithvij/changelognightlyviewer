@@ -73,9 +73,7 @@ func prevUri(postdate string, jsenabled bool) string {
 }
 
 templ body(postdate string, jsenabled bool) {
-<div hx-ext="response-targets">
-<style>
-</style>
+<div hx-ext="response-targets" id="content">
 	<div class="btm-right" hx-ext="path-params">
 		<form>
 		<input
@@ -88,17 +86,17 @@ templ body(postdate string, jsenabled bool) {
 			hx-get="/browse?postdate=:postdate"
 			hx-push-url="true"
 			hx-trigger="input changed delay:1s"
-			hx-target="body"
+			hx-target="#content"
 		></input>
 		<button type="submit" id="date-go" style="display: none">go</button>
 		</form>
-		<div hx-boost="true">
+		<div hx-boost="true" class="poppins-regular">
 			<a
 				library="default"
 				name="chevron-double-left"
 				hx-push-url="true"
 				href={ templ.SafeURL(firstUri(jsenabled)) }
-				hx-target="body"
+				hx-target="#content"
 				class="glink"
 			>&lt;&lt;</a>
 			<a
@@ -106,7 +104,7 @@ templ body(postdate string, jsenabled bool) {
 				name="chevron-left"
 				hx-push-url="true"
 				href={ templ.SafeURL(prevUri(postdate, jsenabled)) }
-				hx-target="body"
+				hx-target="#content"
 				class="prev-date glink"
 			>&lt;</a>
 			<a
@@ -114,7 +112,7 @@ templ body(postdate string, jsenabled bool) {
 				name="chevron-right"
 				hx-push-url="true"
 				href={ templ.SafeURL(nextUri(postdate, jsenabled)) }
-				hx-target="body"
+				hx-target="#content"
 				class="next-date glink"
 			>&gt;</a>
 			<a
@@ -122,7 +120,7 @@ templ body(postdate string, jsenabled bool) {
 				name="chevron-double-right"
 				hx-push-url="true"
 				href={ templ.SafeURL(todayUri(jsenabled)) }
-				hx-target="body"
+				hx-target="#content"
 				class="glink"
 			>&gt;&gt;</a>
 
