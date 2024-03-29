@@ -159,7 +159,7 @@ func index(postdate string, jsenabled bool) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		if jsenabled {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<noscript><div style=\"color: wheat\"><p>This site is best viewed with Javascript.</p><p>Automatically redirecting to the html version in 3 sec.</p></div></noscript>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<noscript><div style=\"color: wheat\"><p>This site is best viewed with javascript enabled and preferably on Firefox.</p><p>Automatically redirecting to the html version in 3 sec.</p></div></noscript>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
