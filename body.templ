@@ -75,7 +75,7 @@ func prevUri(postdate string, jsenabled bool) string {
 templ body(postdate string, jsenabled bool) {
 <div hx-ext="response-targets" id="content">
 	<div class="btm-right" hx-ext="path-params">
-		<form>
+		<form style="display: flex">
 		<input
 			type="date"
 			name="postdate"
@@ -88,7 +88,7 @@ templ body(postdate string, jsenabled bool) {
 			hx-trigger="input changed delay:1s"
 			hx-target="#content"
 		></input>
-		<button type="submit" id="date-go" style="display: none">go</button>
+		<button type="submit" id="date-go" class={ templ.KV("displaynone", jsenabled) }>go</button>
 		</form>
 		<div hx-boost="true" class="poppins-regular">
 			<a

@@ -44,7 +44,7 @@ func generateCalendarHTML(dateStr, viewy, viewm string) string {
 	pmonth := int(previousDay.Month())
 	nmonth := int(nextDay.Month())
 
-	html := t.Month().String()[:3] + " " + viewy
+	html := t.Month().String() + " " + viewy
 	html += "<a href='/cal?date=" + dateStr + "&yyyy=" + strconv.Itoa(pyear) + "&mm=" + strconv.Itoa(pmonth) + "'>&lt;</a>"
 	html += "<table hx-boost='true'>"
 	html += "<tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>"
