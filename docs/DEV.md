@@ -42,51 +42,59 @@ To get the content (CORS issue prevents loading it directly via htmx)
 mkdir -p content && cd content
 nix-shell -p httrack
 ```
+
 `httrack "https://nightly.changelog.com" -O . "-*email*" --preserve`
 
 ## TODO
 
+- [ ] IMPORTANT
+  - https://changelog.com/news/archive
+  - make it look like the above, also date picker
 - [x] htmx ui
-    - [ ] select only the specific elements from the server
-    - not possible to select multiple things from response
-    - I guess oob swap or client side scripting
+  - [ ] select only the specific elements from the server
+  - not possible to select multiple things from response
+  - I guess oob swap or client side scripting
 - [x] client side caching to avoid requests
-    - see if fly.io functions like this already without doing much
-    - assuming this works because fly.io is sophisticated enough for static assets
+  - see if fly.io functions like this already without doing much
+  - assuming this works because fly.io is sophisticated enough for static assets
 - [ ] separate categories for first timers, top new, repeat performers?
-    - would make more sense to do this from db rendered ui not static html files parsed
+  - would make more sense to do this from db rendered ui not static html files
+    parsed
 - [ ] calendar view with htmx/cache as the simplest approach
-    - [ ] Better calendar on desktop
-        - [ ] show skull/question mark icons in known missing entries in the calendar
-    - [ ] mobile ui is enough (bigger bottom panel)
+  - [ ] Better calendar on desktop
+    - [ ] show skull/question mark icons in known missing entries in the
+          calendar
+  - [ ] mobile ui is enough (bigger bottom panel)
 - [ ] missing issues detect via 404 and also 404 page as well
 - [x] prevent <2015-01-01 and >=current date in calendar ui
 - [ ] light dark mode switch
-    - how is it done in the email? where is this info saved?
-    - I guess client side is enough
-    - no cookies, avoid gdpr cookie prompt
+  - how is it done in the email? where is this info saved?
+  - I guess client side is enough
+  - no cookies, avoid gdpr cookie prompt
 - [x] google analytics
-    - not sure, will require input from the changelog people
+  - not sure, will require input from the changelog people
 - [x] Should I be writing this in ruby?
-    - Intent is to learn htmx with go (learn templ later)
+  - Intent is to learn htmx with go (learn templ later)
 - mistyped as nightlog.changley.com
-    - once in while this can be shown from the server side (P<0.02) and would act as an easter egg
-    - not going to implement it
+  - once in while this can be shown from the server side (P<0.02) and would act
+    as an easter egg
+  - not going to implement it
 - [x] left right buttons (not naviagtion but date wise)
-    - [x] keyboard shortcuts
-    - [x] Bug with sholeace icons requests
-    - [x] disable hx-get for empty urls
+  - [x] keyboard shortcuts
+  - [x] Bug with sholeace icons requests
+  - [x] disable hx-get for empty urls
 - [ ] Vendor all deps
-    - Client side
-    - [x] htmx
-    - [x] htmx extenstions
-    - [ ] shoelace (is this possible)
-        - [ ] bun install and serve?
-    - [ ] embed into go binary, static scripts
+  - Client side
+  - [x] htmx
+  - [x] htmx extenstions
+  - [ ] shoelace (is this possible)
+    - [ ] bun install and serve?
+  - [ ] embed into go binary, static scripts
 - [ ] optional memcache/varnish/redis caching
-    - try this with lru eviction or something to speed up
-    - what about today()? it will require cache invalidation when changed
+  - try this with lru eviction or something to speed up
+  - what about today()? it will require cache invalidation when changed
 - [ ] remove all todos and the todo section once done
-- [x] open issue for discussion https://github.com/thechangelog/nightly/issues/44
+- [x] open issue for discussion
+      https://github.com/thechangelog/nightly/issues/44
 - [ ] send pr
-    - [ ] remove proxying glue code/endpoints proxying nightly.changelog.com
+  - [ ] remove proxying glue code/endpoints proxying nightly.changelog.com
